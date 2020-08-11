@@ -113,13 +113,31 @@ export default function ProgCientifica(){
 											<FlatList
 												data={act} 
 												style={styles.activitiesList}
-												keyExtractor={(item, index) => item.PalestraId.toString()}
-												renderItem={({item: talk}) => (
-											
-													<Text style={styles.activityList}>{talk.TemaPalestra}</Text>
+												keyExtractor={(item) => item.PalestraId.toString()}
+												renderItem={({item: talk, index: idx}) => (
+													(idx === 0 ? (
+														<View style={styles.activityList}>
+															{/* <Text style={styles.activityList}>{talk.TemaPalestra}</Text> */}
+															
+															<Text style={styles.activityTitle}>{talk.DescricaoAtividade}</Text>
+															
+															
+															<View style={styles.activityLocation}>
+																<Feather name="map-pin" size={16} color="red" style={styles.activityLocationIcon}/>
+																<Text style={styles.activityLocationText}>{talk.LocalAtividade}</Text>
+															</View>
+
+															<View style={styles.activityDate}>
+																	<Feather name="clock" size={15} color="red" style={styles.activityDateIcon}/>
+																	<Text style={styles.activityDateText}>{talk.HoraInicioAtividade} - {talk.HoraFimAtividade}</Text>
+															</View>
+														</View>
+													) : (
+														<View style={{display: "none"}}></View>
+													))
+
 												)}
 											/>
-
 									)}
 								/>
 

@@ -52,6 +52,16 @@ export default StyleSheet.create({
         backgroundColor:'rgba(255,255,255,0.4)',
         padding:20,
         fontWeight:"bold"
+    },
+
+    eventDayBody:{
+        borderColor:'rgba(255,255,255,0.5)',
+        borderWidth:1,
+        display:"none"
+    },
+
+    activityTitle:{
+        color:"#ffffff"
     }
 
 });
