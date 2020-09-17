@@ -4,16 +4,43 @@ import Constants from 'expo-constants'; // expo install expo-constants
 let hfHeight = Constants.height - Constants.width;
 
 export default StyleSheet.create({
-    container: {
+    // container: {
+    //     flex: 1,
+    //     paddingTop: Constants.statusBarHeight,
+    //     backgroundColor:'#ffffff'
+    // },
+
+    // content: {
+    //     flex: 1,
+    //     paddingHorizontal: 24,
+    //     backgroundColor:'#0e1783'
+    // },
+
+    container:{
         flex: 1,
-        paddingTop: Constants.statusBarHeight,
-        backgroundColor:'#ffffff'
+        backgroundColor: '#0e2283',
+        paddingTop:20
     },
 
-    content: {
-        flex: 1,
-        paddingHorizontal: 24,
-        backgroundColor:'#0e1783'
+    content:{
+        padding:40
+    },
+
+    scrollView:{
+        flex:1
+    },
+
+    topBar:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+
+    title:{
+        color: '#ffffff',
+        fontSize: 24,
+        lineHeight: 32,
+        marginVertical: 40
     },
 
     header:{

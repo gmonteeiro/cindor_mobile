@@ -18,25 +18,25 @@ function ProgTabs() {
 					height: 64,
 					position: 'absolute',
 					top: 250,
-					borderBottomWidth: 5,
-					borderBottomColor: "rgba(0,0,0,0.1)" 
+					borderBottomWidth:3,
+					borderBottomColor: '#0e2283'
 				},
 				tabStyle: {
-					borderBottomWidth: 5,
-					borderBottomColor: 'red'
 				},
 				iconStyle: {
 					flex: 0,
-					width: 20,
-					height:20
+					width:10,
+					height:60,
+					
 				},
 				labelStyle: {
-					fontSize: 13,
+					fontSize: 14,
+					fontWeight: 'bold'
 				},
-				inactiveBackgroundColor: '#fafafc',
-				activeBackgroundColor: '#ebebf5',
+				inactiveBackgroundColor: '#ebebf5',
+				activeBackgroundColor: '#fafafc',
 				inactiveTintColor: '#c1bccc',
-				activeTintColor: '#32264d'
+				activeTintColor: '#0e2283'
 			}}
 		>
 			<Screen 
@@ -46,7 +46,7 @@ function ProgTabs() {
 					tabBarLabel: 'Por Data',
 					tabBarIcon: ({color, size, focused}) => {
 						return(
-							<Ionicons name="ios-easel" size={size} color={focused ? '#8257e5' : color} />
+							<Ionicons name="ios-calendar" size={size} color={focused ? '#0e2283' : color} />
 						);
 					}
 				}}
@@ -58,7 +58,7 @@ function ProgTabs() {
 					tabBarLabel: 'Por Tema',
 					tabBarIcon: ({color, size, focused}) => {
 						return(
-							<Ionicons name="ios-heart" size={size} color={focused ? '#8257e5' : color} />
+							<Ionicons name="ios-heart" size={size} color={focused ? '#0e2283' : color} />
 						);
 					}
 				}}

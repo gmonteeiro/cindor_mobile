@@ -94,12 +94,7 @@ export default function ProgCientifica(){
 					style={styles.eventDaysList}
 					keyExtractor={day => day}
 					renderItem={({item: day}) => (
-
-					
-			<Text style={styles.textTitle}>{day}</Text>
-
-
-						
+						<Text style={styles.textTitle}>{day}</Text>
 					)}
 				/>
 			</View>

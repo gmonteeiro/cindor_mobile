@@ -13,7 +13,6 @@ const AppStack = createStackNavigator();
 const AppDrawer = createDrawerNavigator();
 
 import Home from '../pages/Home';
-import progCientifica from '../pages/progCientifica';
 import Detail from '../pages/Detail';
 import ProgTabs from './ProgTabs';
 
@@ -24,7 +23,6 @@ export default function Routes(){
 
 			<AppDrawer.Navigator initialRouteName="Home">
 					<AppDrawer.Screen name="Home" component={Home} />
-					<AppDrawer.Screen name="progCientifica" component={progCientifica} />
 					<AppDrawer.Screen name="Detail" component={Detail} />
 					<AppDrawer.Screen name="Prog" component={ProgTabs} />
 			</AppDrawer.Navigator>
