@@ -20,7 +20,8 @@ export default StyleSheet.create({
         borderRadius:50,
         paddingHorizontal:35,
         paddingVertical:10,
-        marginTop:15
+        marginTop:15,
+        marginBottom:10
     },
 
     emptyButtonText:{
@@ -31,15 +32,16 @@ export default StyleSheet.create({
 
     centeredView: {
         flex: 1,
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
         marginTop: 22
     },
     modalView: {
+        width:'90%',
         margin: 20,
         backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
+        borderRadius: 5,
+        padding: 10,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -48,10 +50,38 @@ export default StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 5
+        elevation: 3
+    },
+    modalCloseButton:{
+        position: 'absolute',
+        right: 7,
+        top: 7,
+        zIndex:999
+    },
+    modalTitle: {
+        fontSize:22,
+        textAlign: 'center',
+        width: '100%',
+        marginBottom:20,
+        fontWeight:'700'
     },
     modalText: {
         marginBottom: 15,
         textAlign: "center"
+    },
+    modalInputLabel:{
+        width:'100%',
+        textAlign:'left',
+        fontWeight:'500',
+        color:'#9698b5',
+        marginBottom:3
+    },
+    modalInput:{
+        textAlignVertical:'top',
+        width:'100%',
+        minHeight:30,
+        backgroundColor:'#fafafa',
+        marginBottom:20,
+        padding:5
     }
 })
