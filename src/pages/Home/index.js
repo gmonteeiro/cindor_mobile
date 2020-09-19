@@ -7,12 +7,7 @@ import { Dimensions } from 'react-native';
 import { StatusBar } from 'react-native';
 import Swiper from 'react-native-swiper';
 
-// import api from '../../services/api';
-
-import PageHeader from '../../Components/PageHeader';
-
 import logoImg from '../../assets/logo.png';
-import backIcon from '../../assets/back.png';
 import sliderImg1 from '../../assets/slider-img1.png';
 import bgHeader from '../../assets/bg-header.png';
 
