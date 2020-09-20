@@ -23,7 +23,8 @@ export default StyleSheet.create({
     },
 
     content:{
-        padding:40
+        paddingVertical:40,
+        paddingHorizontal:20,
     },
 
     scrollView:{

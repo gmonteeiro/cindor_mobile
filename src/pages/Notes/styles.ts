@@ -2,6 +2,11 @@ import { StyleSheet } from 'react-native';
 import { Dimensions } from 'react-native';
 
 export default StyleSheet.create({
+
+    content: {
+        height: Dimensions.get('window').height - 250,
+        padding: 20
+    },
     
     emptySection:{
         height: Dimensions.get('window').height - 300,
@@ -12,6 +17,18 @@ export default StyleSheet.create({
     emptyText: {
         color:'#9698b5',
         fontSize:18
+    },
+
+    newNoteButton: {
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        borderColor:'#fff',
+        borderWidth:1,
+        paddingVertical: 9,
+        paddingHorizontal: 11,
+        borderRadius:100,
+        position: 'absolute',
+        top: -80,
+        right: 20
     },
 
     emptyButton:{
@@ -30,11 +47,27 @@ export default StyleSheet.create({
         fontWeight:'bold'
     },
 
+    noteItem: {
+        backgroundColor: '#9698b5',
+        padding: 10,
+        color: '#fff',
+        marginBottom: 10 
+    },
+
+    noteTitle: {
+        color: '#fff',
+        fontSize: 18,
+        height: 30,
+        overflow: 'hidden',
+        fontWeight: 'bold'
+    },
+
     centeredView: {
         flex: 1,
         justifyContent: "flex-start",
         alignItems: "center",
-        marginTop: 22
+        marginTop: 22,
+        backgroundColor:'rgba(0,0,0,0.5)'
     },
     modalView: {
         width:'90%',
@@ -83,5 +116,32 @@ export default StyleSheet.create({
         backgroundColor:'#fafafa',
         marginBottom:20,
         padding:5
+    },
+
+    modalViewerTitle: {
+        width:'100%',
+        height: 30,
+        fontSize: 16,
+        fontWeight: 'bold'
+    },
+
+    modalViewerContent: {
+        width:'100%',
+        minHeight: 300,
+    },
+
+    modalViewerOptions:{
+        width:'100%',
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        marginTop: 10
+        
+    },
+
+    modalActionButton:{
+        alignItems:'center',
+        backgroundColor: '#eee',
+        paddingVertical:10,
+        width:'25%'
     }
 })
