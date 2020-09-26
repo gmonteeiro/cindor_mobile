@@ -14,7 +14,7 @@ import bgHeader from '../../assets/bg-header.png';
 import styles from './styles'
 
 export default function Home(){
-	StatusBar.setBarStyle('dark-content', true);
+	StatusBar.setBarStyle('light-content', true);
     
 	const navigation = useNavigation();
 	let wd = Dimensions.get('window').width;
@@ -41,7 +41,7 @@ export default function Home(){
           <Image source={logoImg} />
         </View>
 
-        <Text style={styles.title}>Home</Text>
+        {/* <Text style={styles.title}>Home</Text> */}
       </ImageBackground>
 
 			<ScrollView style={styles.scrollView}>

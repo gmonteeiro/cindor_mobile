@@ -9,7 +9,6 @@ import logoImg from '../../assets/logo.png';
 import bgHeader from '../../assets/bg-header.png';
 
 import styles from './styles';
-import { NativeScreen } from 'react-native-screens';
 
 interface PageHeaderProps{
   title: string;
