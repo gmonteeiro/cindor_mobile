@@ -122,7 +122,8 @@ export default StyleSheet.create({
         width:'100%',
         height: 30,
         fontSize: 16,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginBottom:10
     },
 
     modalViewerContent: {
@@ -142,6 +143,6 @@ export default StyleSheet.create({
         alignItems:'center',
         backgroundColor: '#eee',
         paddingVertical:10,
-        width:'25%'
+        width:'49%'
     }
 })

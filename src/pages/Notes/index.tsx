@@ -102,7 +102,7 @@ export default function Notes(){
 					);
 				}
 			}else{
-				setModalVisible(false)
+				setModalVisible(false);
 			}
 		}
 
@@ -118,6 +118,31 @@ export default function Notes(){
 			setModalViewerVisible(false);
 			setEditMode(true);
 			setModalVisible(true);
+		}
+
+		function handleDeleteNote(){
+			let notesArray = notes;
+
+			Alert.alert(
+				'Tem certeza que deseja Deletar sua Anotação?',
+				'',
+				[ { text: 'Cancelar', onPress: () => console.log('Canceld Pressed') },
+					{ text: 'SIM', onPress: () => {
+						notesArray.splice(currentNote.index, 1);
+
+						AsyncStorage.setItem('Notes', JSON.stringify(notesArray)).then(res => {
+							setNotes(notesArray);
+							setNoteTitle('');
+							setNoteContent('');
+							setShowEmptyContent(notesArray.length < 1);
+							setCurrentNote({});
+							setModalViewerVisible(false);
+						});	
+					}}
+					
+			  ],
+				{ cancelable: false }
+			);
 		}
 
     return(
@@ -210,20 +235,12 @@ export default function Notes(){
 								<Text style={styles.modalViewerContent}>{currentNote.noteContent}</Text>
 
 								<View style={styles.modalViewerOptions}>
+									<TouchableOpacity style={styles.modalActionButton} onPress={() => { handleDeleteNote() }} >
+										<Feather name="trash-2" color='#e26a6a' size={22}></Feather>
+									</TouchableOpacity>
+
 									<TouchableOpacity style={styles.modalActionButton} onPress={() => { handleEditNote() }} >
-										<Feather name="edit" color='#ccc' size={22}></Feather>
-									</TouchableOpacity>
-
-									<TouchableOpacity style={styles.modalActionButton}  >
-										<Feather name="trash-2" color='#ccc' size={22}></Feather>
-									</TouchableOpacity>
-
-									<TouchableOpacity style={styles.modalActionButton}  >
-										<Feather name="mail" color='#ccc' size={22}></Feather>
-									</TouchableOpacity>
-
-									<TouchableOpacity style={styles.modalActionButton}  >
-										<Feather name="message-circle" color='#ccc' size={22}></Feather>
+										<Feather name="edit" color='#2574a9' size={22}></Feather>
 									</TouchableOpacity>
 								</View>
 								
