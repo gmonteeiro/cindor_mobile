@@ -16,6 +16,7 @@ import Home from '../pages/Home';
 import ProgTabs from './ProgTabs';
 import Notes from '../pages/Notes';
 import ContactInfo from '../pages/ContactInfo';
+import GeneralInfo from '../pages/GeneralInformation';
 
 export default function Routes(){
 	
@@ -23,10 +24,11 @@ export default function Routes(){
 		<NavigationContainer>
 
 			<AppDrawer.Navigator initialRouteName="Home">
-					<AppDrawer.Screen name="Home" component={Home} />
-					<AppDrawer.Screen name="Programação Científica" component={ProgTabs} />
-					<AppDrawer.Screen name="Notes" component={Notes} />
-					<AppDrawer.Screen name="Fale Conosco" component={ContactInfo} />
+				<AppDrawer.Screen name="Home" component={Home} />
+				<AppDrawer.Screen name="Programação Científica" component={ProgTabs} />
+				<AppDrawer.Screen name="Notes" component={Notes} />
+				<AppDrawer.Screen name="Fale Conosco" component={ContactInfo} />
+				<AppDrawer.Screen name="Informações Gerais" component={GeneralInfo} />
 			</AppDrawer.Navigator>
 
 		</NavigationContainer>

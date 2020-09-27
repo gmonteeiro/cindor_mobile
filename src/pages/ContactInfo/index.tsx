@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
-	View, ScrollView, Text, TextInput, Modal, 
+	View, ScrollView, Text, TextInput, 
 	TouchableOpacity, Linking, StatusBar,
 } from 'react-native';
 import { Entypo } from '@expo/vector-icons'; 

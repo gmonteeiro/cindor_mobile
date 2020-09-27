@@ -38,7 +38,7 @@ export default StyleSheet.create({
     },
 
     contactInfoContainer: {
-        backgroundColor:'#ececf4',
+        backgroundColor:'#e5edfe',
         padding:20,
         marginTop:20
     },
