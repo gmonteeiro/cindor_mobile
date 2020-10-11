@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { 
-	View, ScrollView, Text, TextInput, Modal, 
+	View, Text, TextInput, Modal, 
 	TouchableOpacity, Alert, AsyncStorage, StatusBar,
-	FlatList, Item
+	FlatList
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
