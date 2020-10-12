@@ -45,7 +45,7 @@ export default function ContactInfo(){
 	
 	return(
 		<View style={styles.container}>
-			<PageHeader title="Fale Conosco"/>
+			<PageHeader title="Fale Conosco" destination="Home"/>
 
 			<ScrollView style={styles.content} keyboardShouldPersistTaps='handled'>
 				

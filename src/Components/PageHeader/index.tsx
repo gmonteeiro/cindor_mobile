@@ -12,16 +12,16 @@ import styles from './styles';
 
 interface PageHeaderProps{
   title: string;
+  destination: string;
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({title}) => {
+const PageHeader: React.FC<PageHeaderProps> = ({title, destination}) => {
 
   StatusBar.setBarStyle('light-content', true);
-
-  const { navigate } = useNavigation();
+  const navigation = useNavigation();
 
   function handleGoBack(){
-    navigate('Home');
+    (destination === 'goBack' ? (navigation.goBack()) : (navigation.navigate(destination)));
   }
 
   return (

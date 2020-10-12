@@ -4,7 +4,8 @@ const styles = StyleSheet.create({
     container:{
         backgroundColor: '#0e2283',
         paddingTop:20,
-        height: 250
+        height: 250,
+        overflow:'hidden'
     },
 
     content:{
@@ -20,9 +21,10 @@ const styles = StyleSheet.create({
 
     title:{
         color: '#ffffff',
-        fontSize: 24,
+        fontSize: 20,
         lineHeight: 32,
-        marginVertical: 40
+        marginVertical: 40,
+        fontWeight: '900'
     }
 });
 

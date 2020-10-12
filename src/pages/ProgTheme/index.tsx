@@ -8,7 +8,7 @@ import styles from './styles';
 function ProgTheme(){
 	return(
 		<View style={styles.container}>
-			<PageHeader title="Programação Científica tema"/>
+			<PageHeader title="Programação Científica tema" destination="Home"/>
 		</View>
 	)
     

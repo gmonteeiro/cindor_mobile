@@ -23,7 +23,6 @@ export default function Notes(){
 	const [notes, setNotes] = useState([]);
 
 	useEffect(() => {
-		//clearAppData();
 		AsyncStorage.getItem('Notes').then(response => {
 			if(response){
 				const responseNotes = JSON.parse(response);
@@ -137,7 +136,7 @@ export default function Notes(){
 
 	return(
 		<View style={styles.container}>
-			<PageHeader title="Minhas Anotações"/>
+			<PageHeader title="Minhas Anotações" destination="Home"/>
 
 			<View>
 				<Modal
