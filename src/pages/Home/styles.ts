@@ -99,6 +99,7 @@ export default StyleSheet.create({
     },
 
     emptySection:{
+        minHeight:200,
         alignItems:'center',
         justifyContent:'center'
     },
@@ -121,6 +122,57 @@ export default StyleSheet.create({
         color:'#ffffff',
         fontSize:16,
         fontWeight:'bold'
-    }
+    },
+
+
+    itemContent: {
+        paddingHorizontal: 10,
+        borderLeftWidth:3,
+        backgroundColor:'#fafafa',
+        borderLeftColor:'#9698b6',
+        marginLeft:1,
+        marginTop:10
+    },
+    itemDescription: {
+        fontWeight:'bold',
+        color:'#5f617d',
+        textAlign:'justify',
+        marginTop:5,
+        marginBottom:10
+    },
+    itemPeriod: {
+        fontSize: 11,
+        fontWeight:'bold',
+        color:'#9698b6',
+        paddingTop:10,
+        textAlign:'justify'
+    },
+
+
+    centeredView: {
+        flex: 1,
+        justifyContent: "flex-start",
+        alignItems: "center",
+        marginTop: 22,
+        backgroundColor:'rgba(0,0,0,0.8)'
+    },
+    modalView: {
+        width:'90%',
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 5,
+        // padding: 10,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 3
+    },
+    modalCloseButton:{
+    },
 
 });

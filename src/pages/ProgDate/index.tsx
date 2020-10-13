@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Modal, AsyncStorage } from 'react-native';
+import { View, Text, AsyncStorage } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
 import PageHeader from '../../Components/PageHeader';
-
-//import EventDetails from '../../Components/EventDetails';
-
 import api from '../../services/api';
 import styles from './styles';
 
@@ -17,15 +14,13 @@ function ProgDate(){
 	const [loading, setLoading] = useState(false);
 	const eventDays = ["12/12/2020","13/12/2020","14/12/2020","15/12/2020"];
 	const [visibleItem, setvisibleItem] = useState(0);
-	const [modalVisible, setModalVisible] = useState(false);
-	const [currentActivity, setcurrentActivity] = useState({});
+	const [currentActivity, setCurrentActivity] = useState({});
 
 	const navigation = useNavigation();
 
 	function handdleActivityDetails(act){
-		setcurrentActivity(act);
-		//setModalVisible(true);
-		navigation.navigate('ActivityDetails', {'activityId': act.AtividadeId});
+		setCurrentActivity(act);
+		navigation.navigate('ActivityDetails', {act});
 	}
 
 	function handdleVisibleItem(index){
@@ -103,7 +98,7 @@ function ProgDate(){
 
 	return(
 		<View style={styles.container}>
-			<PageHeader title="Programação Científica data" destination="goBack"/>
+			<PageHeader title="Programação Científica" destination="goBack"/>
 
 			<ScrollView style={styles.content}>
 				{
@@ -132,26 +127,10 @@ function ProgDate(){
 						)
 					})
 				}				
+				<View style={styles.item} ></View>
 			</ScrollView>
 
 			
-				<Modal
-					animationType="slide"
-					transparent={true}
-					visible={modalVisible}
-				>
-					<View style={styles.centeredView}>
-						<View style={styles.modalView}>
-
-							<TouchableOpacity style={styles.modalCloseButton} onPress={() => { setModalVisible(false) }} >
-								<Feather name="x" color='red' size={22}></Feather>
-							</TouchableOpacity>
-
-							{/* <EventDetails id={currentActivity.AtividadeId}/> */}
-							
-						</View>
-					</View>
-				</Modal>
 		</View>
 	)
 	

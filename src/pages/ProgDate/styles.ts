@@ -3,7 +3,7 @@ import { Dimensions } from 'react-native';
 
 const styles = StyleSheet.create({
     content: {
-        height: Dimensions.get('window').height - 250,
+        height: Dimensions.get('window').height - 300,
         backgroundColor:'#fff',
         padding:20,
         marginTop:65

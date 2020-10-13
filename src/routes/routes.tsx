@@ -27,7 +27,7 @@ export default function Routes(){
 			<AppDrawer.Navigator initialRouteName="Home">
 				<AppDrawer.Screen name="Home" component={Home} />
 				<AppDrawer.Screen name="Programação Científica" component={ProgTabs} />
-				<AppDrawer.Screen name="Notes" component={Notes} />
+				<AppDrawer.Screen name="Minhas Anotações" component={Notes} />
 				<AppDrawer.Screen name="Fale Conosco" component={ContactInfo} />
 				<AppDrawer.Screen name="Informações Gerais" component={GeneralInfo} />
 				<AppDrawer.Screen name="ActivityDetails" 
@@ -37,7 +37,6 @@ export default function Routes(){
 			</AppDrawer.Navigator>
 
 		</NavigationContainer>
-
 		
 	);
 }

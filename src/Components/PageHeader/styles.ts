@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         lineHeight: 32,
         marginVertical: 40,
-        fontWeight: '900'
+        fontWeight: '900',
+        textTransform: 'uppercase'
     }
 });
 
