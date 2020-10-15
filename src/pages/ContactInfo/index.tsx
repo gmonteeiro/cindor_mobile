@@ -4,6 +4,7 @@ import {
 	TouchableOpacity, Linking, StatusBar,
 } from 'react-native';
 import { Entypo } from '@expo/vector-icons'; 
+import { useNavigation } from '@react-navigation/native';
 import * as MailComposer from 'expo-mail-composer';
 
 import PageHeader from '../../Components/PageHeader';
@@ -42,10 +43,14 @@ export default function ContactInfo(){
 			}
 		})
 	}
+
+	const navigation = useNavigation();
+
+	
 	
 	return(
 		<View style={styles.container}>
-			<PageHeader title="Fale Conosco" destination="Home"/>
+			<PageHeader title="Fale Conosco" destination="menu"/>
 
 			<ScrollView style={styles.content} keyboardShouldPersistTaps='handled'>
 				

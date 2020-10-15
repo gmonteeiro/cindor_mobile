@@ -19,7 +19,7 @@ export default function GeneralInfo(){
 	
 	return(
 		<View style={styles.container}>
-			<PageHeader title="Informações Gerais" destination="Home"/>
+			<PageHeader title="Informações Gerais" destination="menu"/>
 
 			<ScrollView style={styles.content}>
 				<View style={styles.item}>

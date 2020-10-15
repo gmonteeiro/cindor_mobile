@@ -25,7 +25,7 @@ export default function Routes(){
 		<NavigationContainer>
 
 			<AppDrawer.Navigator initialRouteName="Home">
-				<AppDrawer.Screen name="Home" component={Home} />
+				<AppDrawer.Screen name="Home" component={Home} options={{unmountOnBlur: true}}/>
 				<AppDrawer.Screen name="Programação Científica" component={ProgTabs} />
 				<AppDrawer.Screen name="Minhas Anotações" component={Notes} />
 				<AppDrawer.Screen name="Fale Conosco" component={ContactInfo} />

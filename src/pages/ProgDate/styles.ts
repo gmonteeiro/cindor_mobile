@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
     },
     itemTitle: {
-        width:'70%',
+        width:'83%',
         paddingLeft:10,
         color:'#0e1783',
         fontWeight:'700'

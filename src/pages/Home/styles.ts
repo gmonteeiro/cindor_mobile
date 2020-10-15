@@ -37,12 +37,6 @@ export default StyleSheet.create({
         justifyContent: 'space-between'
     },
 
-    title:{
-        color: '#ffffff',
-        fontSize: 24,
-        lineHeight: 32,
-        marginVertical: 40
-    },
 
     header:{
         flexDirection: "row",

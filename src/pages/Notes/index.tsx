@@ -136,7 +136,7 @@ export default function Notes(){
 
 	return(
 		<View style={styles.container}>
-			<PageHeader title="Minhas Anotações" destination="Home"/>
+			<PageHeader title="Minhas Anotações" destination="menu"/>
 
 			<View>
 				<Modal

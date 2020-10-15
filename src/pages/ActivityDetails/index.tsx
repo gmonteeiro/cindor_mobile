@@ -23,7 +23,7 @@ export default function ActivityDetails(){
 
 	console.log('details');
 	const route = useRoute();
-	const act = route.params.act;
+	const act = (route.params ? route.params.act : {});
 	
 
 	function handdleEventDetails(event){

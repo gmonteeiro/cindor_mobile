@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'react-native';
 
 import backIcon from '../../assets/back.png';
+import menuIcon from '../../assets/menu.png';
 import logoImg from '../../assets/logo.png';
 import bgHeader from '../../assets/bg-header.png';
 
@@ -20,8 +21,20 @@ const PageHeader: React.FC<PageHeaderProps> = ({title, destination}) => {
   StatusBar.setBarStyle('light-content', true);
   const navigation = useNavigation();
 
+
   function handleGoBack(){
-    (destination === 'goBack' ? (navigation.goBack()) : (navigation.navigate(destination)));
+    if(destination == 'goBack'){
+      navigation.goBack();
+    }
+    
+    if(destination == 'menu'){
+      navigation.toggleDrawer();
+    }
+
+    if(destination != 'goBack' && destination != 'menu'){
+      navigation.navigate(destination);
+    }
+      
   }
 
   return (
@@ -34,8 +47,8 @@ const PageHeader: React.FC<PageHeaderProps> = ({title, destination}) => {
       >
 
         <View style={styles.topBar}>
-          <BorderlessButton onPress={handleGoBack}>
-            <Image source={backIcon} resizeMode="contain" />
+          <BorderlessButton onPress={() => handleGoBack()}>
+            <Image source={(destination == 'menu' ? menuIcon : backIcon)} resizeMode="contain" />
           </BorderlessButton>
 
           <Image source={logoImg} resizeMode="contain"/>

@@ -58,7 +58,7 @@ function ProgTabs() {
 					tabBarLabel: 'Por Tema',
 					tabBarIcon: ({color, size, focused}) => {
 						return(
-							<Ionicons name="ios-heart" size={size} color={focused ? '#0e2283' : color} />
+							<Ionicons name="ios-bookmark" size={size} color={focused ? '#0e2283' : color} />
 						);
 					}
 				}}

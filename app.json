@@ -2,7 +2,12 @@
   "expo": {
     "name": "IX CINDOR",
     "slug": "ixcindor",
-    "version": "1.0.0",
+    "privacy": "public",
+    "version": "1.0.2",
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -17,10 +22,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.sobee.ixcindor"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "android": {
+      "package": "com.sobee.ixcindor"
     }
   }
 }

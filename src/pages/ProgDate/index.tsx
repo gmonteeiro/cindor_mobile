@@ -34,7 +34,7 @@ function ProgDate(){
 			iniOrder: 
 				a.DataInicioAtividade.substring(0,10)
 				.concat(a.HoraInicioAtividade.substring(11,16))
-				.concat(a.OrdemPalestra)
+				.concat((a.OrdemPalestra == null ? '' : a.OrdemPalestra))
 				.replace(/:|-/g, ""),
 			HoraInicioAtividade: a.HoraInicioAtividade.substring(11,16),
 			DataInicioAtividade: a.DataInicioAtividade.substring(8,10).concat("/")
@@ -98,7 +98,7 @@ function ProgDate(){
 
 	return(
 		<View style={styles.container}>
-			<PageHeader title="Programação Científica" destination="goBack"/>
+			<PageHeader title="Programação Científica" destination="menu"/>
 
 			<ScrollView style={styles.content}>
 				{
@@ -106,7 +106,7 @@ function ProgDate(){
 						return (
 							<View style={styles.item} key={index}>
 								<TouchableOpacity style={styles.itemOption} onPress={() => handdleVisibleItem(index)}>
-									<Text style={styles.itemIndex}>{index+1}</Text>
+									
 									<Text style={styles.itemTitle}>{day}</Text>
 									<Feather style={styles.itemIcon} name={(visibleItem === index ? ('minus'): ('plus'))}></Feather>
 								</TouchableOpacity>

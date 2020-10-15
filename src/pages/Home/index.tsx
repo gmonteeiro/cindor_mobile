@@ -34,6 +34,8 @@ export default function Home(){
 		setModalVisible(true);
 	}
 
+	
+
 	async function getFromApi(endPoint){
 		const res = await api.get(endPoint,{});
 
@@ -41,7 +43,7 @@ export default function Home(){
 			iniOrder: 
 				a.DataInicioAtividade.substring(0,10)
 				.concat(a.HoraInicioAtividade.substring(11,16))
-				.concat(a.OrdemPalestra)
+				.concat((a.OrdemPalestra == null ? '' : a.OrdemPalestra))
 				.replace(/:|-/g, ""),
 			HoraInicioAtividade: a.HoraInicioAtividade.substring(11,16),
 			DataInicioAtividade: a.DataInicioAtividade.substring(8,10).concat("/")
@@ -104,6 +106,12 @@ export default function Home(){
 			
 		})
 	}
+
+	function closeModal(){
+		setModalVisible(false)
+		loadData('Favorites');
+	}
+	
 
 	useEffect(() => {
 		const clearAppData = async function() {
@@ -190,8 +198,8 @@ export default function Home(){
 						.map((ev, idx) => {
 							return (
 								<TouchableOpacity style={styles.itemContent} key={idx} onPress={() => handdleEventDetails(ev)}>
-									<Text style={styles.itemPeriod}>{ev.HoraInicioAtividade} - {ev.HoraFimAtividade}</Text>
-									<Text style={styles.itemDescription}>{ev.DescricaoAtividade}</Text>
+									<Text style={styles.itemPeriod}>{ev.DiaMesInicioAtividade} das {ev.HoraInicioPalestra} às {ev.HoraFimPalestra}</Text>
+									<Text style={styles.itemDescription}>{ev.TemaPalestra}</Text>
 								</TouchableOpacity>
 							)
 						})
@@ -208,7 +216,7 @@ export default function Home(){
 					<View style={styles.centeredView}>
 						<View style={styles.modalView}>
 
-							<TouchableOpacity style={styles.modalCloseButton} onPress={() => { setModalVisible(false) }} >
+							<TouchableOpacity style={styles.modalCloseButton} onPress={() => { closeModal() }} >
 								<Feather name="x" color='red' size={22}></Feather>
 							</TouchableOpacity>
 							
