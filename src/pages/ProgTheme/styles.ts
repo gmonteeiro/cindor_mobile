@@ -19,16 +19,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#e5edfe',
         alignItems:'center'
     },
-    itemIndex: {
-        width:'15%',
-        fontWeight:'900',
-        fontSize:18,
-        textAlign:'center',
-        color:'#0072bc',
-        paddingVertical: 15,
-    },
     itemTitle: {
-        width:'70%',
+        width:'85%',
         paddingLeft:10,
         color:'#0e1783',
         fontWeight:'700'
@@ -49,19 +41,25 @@ const styles = StyleSheet.create({
         marginLeft:1,
         marginTop:10
     },
-    itemDescription: {
-        fontWeight:'bold',
-        color:'#5f617d',
-        textAlign:'justify',
-        marginTop:5,
-        marginBottom:10
+
+    activityInfosSection:{
+        // paddingHorizontal: 20,
+        paddingTop: 5,
     },
-    itemPeriod: {
-        fontSize: 11,
-        fontWeight:'bold',
-        color:'#9698b6',
-        paddingTop:10,
-        textAlign:'justify'
+    activityInfos:{
+        marginBottom: 5,
+        flexDirection:'row',
+        alignItems: 'center'
+    },
+    activityInfosIcon: {
+        color: '#5f617d',
+        marginRight: 5
+    },
+    activityInfosText: {
+        color: '#5f617d',
+        fontWeight: 'bold',
+        marginRight: 15,
+        fontSize: 14
     },
 
     centeredView: {

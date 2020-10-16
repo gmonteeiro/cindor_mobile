@@ -8,9 +8,9 @@ import PageHeader from '../../Components/PageHeader';
 import api from '../../services/api';
 import styles from './styles';
 
-function ProgDate(){
-	const [activities, setActivities] = useState([]);
-	const [events, setEvents] = useState([]);
+function ProgTheme(){
+	const [visibleItem, setvisibleItem] = useState(0);
+	const [activities, setActivities] = useState({});
 	const [currentActivity, setCurrentActivity] = useState({});
 
 	const navigation = useNavigation();
@@ -18,75 +18,32 @@ function ProgDate(){
 	function handdleActivityDetails(act){
 		setCurrentActivity(act);
 		navigation.navigate('ActivityDetails', {act});
+	}	
+
+	function handdleVisibleItem(act){
+		(visibleItem === act ? setvisibleItem(null) : setvisibleItem(act))
 	}
 
-	async function getFromApi(endPoint){
-		const res = await api.get(endPoint,{});
-
-		const data = res.data.map( a => ({...a,
-			iniOrder: 
-				a.DataInicioAtividade.substring(0,10)
-				.concat(a.HoraInicioAtividade.substring(11,16))
-				.concat((a.OrdemPalestra == null ? '' : a.OrdemPalestra))
-				.replace(/:|-/g, ""),
-			HoraInicioAtividade: a.HoraInicioAtividade.substring(11,16),
-			DataInicioAtividade: a.DataInicioAtividade.substring(8,10).concat("/")
-				.concat(a.DataInicioAtividade.substring(5,7)).concat("/")
-				.concat(a.DataInicioAtividade.substring(0,4)),
-			HoraInicioPalestra: (a.HoraInicioPalestra == null ? ('') : (a.HoraInicioPalestra.substring(11,16))),
-			DiaMesInicioAtividade: a.DataInicioAtividade.substring(8,10).concat("/")
-				.concat(a.DataInicioAtividade.substring(5,7)),
-			DataFimAtividade: a.DataFimAtividade.substring(8,10).concat("/")
-				.concat(a.DataFimAtividade.substring(5,7)).concat("/")
-				.concat(a.DataFimAtividade.substring(0,4)),
-			HoraFimAtividade: a.HoraFimAtividade.substring(11,16),
-			HoraFimPalestra: (a.HoraFimPalestra == null ? ('') : (a.HoraFimPalestra.substring(11,16))),
-			PalestranteImgUrl: (a.PalestranteImgUrl == null ? ("noImage") : a.PalestranteImgUrl)
-		}));
-
-		return data;
-	}
-
-	function loadData(type){
-		AsyncStorage.getItem(type).then(res => {
-			const uri = (type === 'Activities' ? ('/GetAtividades?codEve=3') : ('?codEve=3'));
+	function loadData(){
+		AsyncStorage.getItem('Activities').then(res => {
 			
-			if(res){ // if has local data
-				const localData = JSON.parse(res);
-				const dateDiff = (new Date - new Date(localData.datUpdate))/1000/60;
-				
-				if(dateDiff > 30){ // if local data is not recent we will call the api
+			if(res){ 
+				const local = JSON.parse(res);
 
-					getFromApi(uri).then(apiResponse => {
-						(type === 'Activities' ? (setActivities(apiResponse)) : (setEvents(apiResponse)));
-						AsyncStorage.setItem(type, JSON.stringify({ "datUpdate": new Date(),"data": apiResponse }));
-					});
+				const group = local.data.reduce((r, a) => {
+					r[a.DescricaoAtividade] = [...r[a.DescricaoAtividade] || [], a];
+					return r;
+				}, {});
 
-				}else{ // if local data is recent (30 min or earlier)
-					(type === 'Activities' ? (setActivities(localData.data)) : (setEvents(localData.data)));
-				}
+				setActivities(group);
 			}else{ // if we dont have local data
-				getFromApi(uri).then(apiResponse => {
-					(type === 'Activities' ? (setActivities(apiResponse)) : (setEvents(apiResponse)));
-					AsyncStorage.setItem(type, JSON.stringify({ "datUpdate": new Date(),"data": apiResponse }));
-				});
+				console.log("empty");
 			}
 		})
 	}
 
 	useEffect(() => {
-		const clearAppData = async function() {
-			try {
-				const keys = await AsyncStorage.getAllKeys();
-				await AsyncStorage.multiRemove(keys);
-			} catch (error) {
-				console.error('Error clearing app data.');
-			}
-		}
-
-		// clearAppData();
-		loadData('Activities');
-		loadData('Events');
+		loadData();
 	}, []);
 
 	return(
@@ -95,15 +52,47 @@ function ProgDate(){
 
 			<ScrollView style={styles.content}>
 				{
-					activities
-					.sort((a,b) => a.iniOrder - b.iniOrder)
-					.map((activity, idx) => {
+					Object.keys(activities)
+					.sort()
+					.filter(a => (a != "INTERVALO" && a !=  "ALMOÇO"))
+					.map((activityName, index) => {
+
 						return (
-							<TouchableOpacity style={styles.itemContent} key={idx} onPress={() => handdleActivityDetails(activity)}>
-								<Text style={styles.itemPeriod}>
-									{activity.DiaMesInicioAtividade} das {activity.HoraInicioAtividade} as {activity.HoraFimAtividade}</Text>
-								<Text style={styles.itemDescription}>{activity.DescricaoAtividade}</Text>
-							</TouchableOpacity>
+							<View style={styles.item} key={index}>
+								<TouchableOpacity style={styles.itemOption} onPress={() => handdleVisibleItem(activityName)}>
+									<Text style={styles.itemTitle}>{activityName}</Text>
+									<Feather style={styles.itemIcon} name={(visibleItem === activityName ? ('minus'): ('plus'))}></Feather>
+								</TouchableOpacity>
+
+								{ visibleItem === activityName && (
+									activities[activityName]
+									.sort((a,b) => a.iniOrder - b.iniOrder)
+									.filter(a => (a.DescricaoAtividade != "INTERVALO" && a.DescricaoAtividade !=  "ALMOÇO"))
+									.map((activity, idx) => {
+										return (
+											<TouchableOpacity style={styles.itemContent} key={idx} onPress={() => handdleActivityDetails(activity)}>
+												
+												<View style={styles.activityInfosSection}>
+													<View style={styles.activityInfos}>
+														<Feather style={styles.activityInfosIcon} name='calendar'></Feather>
+														<Text style={styles.activityInfosText}> {activity.DiaMesInicioAtividade} </Text>
+														
+														<Feather style={styles.activityInfosIcon} name='clock'></Feather>
+														<Text style={styles.activityInfosText}>
+															{activity.HoraInicioAtividade} - {activity.HoraFimAtividade}
+														</Text>
+													</View>
+													<View style={styles.activityInfos}>
+														<Feather style={styles.activityInfosIcon} name='map-pin'></Feather>
+														<Text style={styles.activityInfosText}>{activity.LocalAtividade}</Text>
+													</View>
+												</View>
+
+											</TouchableOpacity>
+										)
+									})
+								)}
+							</View>
 						)
 					})
 				}
@@ -115,4 +104,4 @@ function ProgDate(){
 	
 }
 
-export default ProgDate;
+export default ProgTheme;

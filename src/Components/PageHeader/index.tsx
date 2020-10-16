@@ -54,7 +54,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({title, destination}) => {
           <Image source={logoImg} resizeMode="contain"/>
         </View>
 
-        <Text style={styles.title}>{ title }</Text>
+        <Text style={styles.title}>{ title } <Text style={styles.dot}>.</Text></Text>
       </ImageBackground>
     </View>
   )

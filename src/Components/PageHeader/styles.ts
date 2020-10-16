@@ -26,6 +26,11 @@ const styles = StyleSheet.create({
         marginVertical: 40,
         fontWeight: '900',
         textTransform: 'uppercase'
+    },
+
+    dot: {
+        color: 'red',
+        fontSize: 30
     }
 });
 
