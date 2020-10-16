@@ -71,7 +71,7 @@ export default function Home(){
 						console.log(res);
 						const favoritesArray = JSON.parse(res).data;
 						setFavorites(favoritesArray);
-						setHasFavorites(true);
+						setHasFavorites(favoritesArray.length > 0);
 						console.log('favoritos');
 						console.log(favoritesArray);
 					}else{ 
@@ -183,27 +183,33 @@ export default function Home(){
 
 					<View style={styles.title}>
 						<Text style={styles.textTitle}>Meus Favoritos</Text>
-						<Feather style={styles.iconTitle} name="chevron-down" color='#ffffff' size={18}></Feather>
+						<Feather style={styles.iconTitle} name="chevron-down" color='#0e2283' size={18}></Feather>
 					</View>
 
-					{ (!hasFavorite) ? 
-						<View style={styles.emptySection}>
-							<Text style={styles.emptyText}>Você ainda não favoritou palestras!</Text>
-							<TouchableOpacity style={styles.emptyButton} onPress={() => navigation.navigate('Programação Científica')}>
-								<Text style={styles.emptyButtonText}>Ver Programação</Text>
-							</TouchableOpacity>
-						</View>
-					:
-						events.filter(fav => favorites.includes(fav.PalestraId))
-						.map((ev, idx) => {
-							return (
-								<TouchableOpacity style={styles.itemContent} key={idx} onPress={() => handdleEventDetails(ev)}>
-									<Text style={styles.itemPeriod}>{ev.DiaMesInicioAtividade} das {ev.HoraInicioPalestra} às {ev.HoraFimPalestra}</Text>
-									<Text style={styles.itemDescription}>{ev.TemaPalestra}</Text>
-								</TouchableOpacity>
-							)
-						})
-					}
+					<View style={styles.favoriteSection}>
+
+						{ (!hasFavorite) ? 
+							<View style={styles.emptySection}>
+								<Text style={styles.emptyText}>Você ainda não favoritou palestras!</Text>
+							</View>
+						:
+							events.filter(fav => favorites.includes(fav.PalestraId))
+							.map((ev, idx) => {
+								return (
+									<TouchableOpacity style={styles.itemContent} key={idx} onPress={() => handdleEventDetails(ev)}>
+										<Text style={styles.itemPeriod}>{ev.DiaMesInicioAtividade} das {ev.HoraInicioPalestra} às {ev.HoraFimPalestra}</Text>
+										<Text style={styles.itemDescription}>{ev.TemaPalestra}</Text>
+									</TouchableOpacity>
+								)
+							})
+						}
+					</View>
+
+					<View style={styles.buttonSection}>
+						<TouchableOpacity style={styles.emptyButton} onPress={() => navigation.navigate('ProgCientifica')}>
+							<Text style={styles.emptyButtonText}>Ver Programação</Text>
+						</TouchableOpacity>
+					</View>
 
 				</View>
 			</ScrollView>	

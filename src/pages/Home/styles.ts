@@ -25,6 +25,7 @@ export default StyleSheet.create({
     content:{
         paddingVertical:40,
         paddingHorizontal:20,
+        backgroundColor: '#e5edfe',
     },
 
     scrollView:{
@@ -74,13 +75,13 @@ export default StyleSheet.create({
     },
 
     title:{
-        borderBottomColor:'#ffffff',
+        borderBottomColor:'#0e2283',
         borderBottomWidth:2,
         flexDirection:'row'
     },
 
     textTitle:{
-        color:'#ffffff',
+        color:'#0e2283',
         fontSize:16,
         fontWeight:'bold',
         paddingBottom:7,
@@ -93,18 +94,26 @@ export default StyleSheet.create({
     },
 
     emptySection:{
-        minHeight:200,
+        marginTop:50,
+        marginBottom:-30,
         alignItems:'center',
         justifyContent:'center'
     },
 
+    buttonSection:{
+        minHeight:60,
+        alignItems:'center',
+        justifyContent:'center',
+        paddingBottom:80
+    },
+
     emptyText: {
-        color:'#ffffff',
+        color:'#0e2283',
         fontSize:18
     },
 
     emptyButton:{
-        borderColor:'#ffffff',
+        borderColor:'#0e2283',
         borderWidth: 2,
         borderRadius:50,
         paddingHorizontal:35,
@@ -113,19 +122,22 @@ export default StyleSheet.create({
     },
 
     emptyButtonText:{
-        color:'#ffffff',
+        color:'#0e2283',
         fontSize:16,
         fontWeight:'bold'
     },
 
-
+    favoriteSection: {
+        marginBottom: 30
+    },
     itemContent: {
         paddingHorizontal: 10,
         borderLeftWidth:3,
-        backgroundColor:'#fafafa',
+        backgroundColor:'#e1e9fa',
         borderLeftColor:'#9698b6',
         marginLeft:1,
-        marginTop:10
+        marginTop:10,
+        
     },
     itemDescription: {
         fontWeight:'bold',
