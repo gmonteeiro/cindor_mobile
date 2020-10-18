@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         borderLeftWidth:3,
         backgroundColor:'#fafafa',
         borderLeftColor:'#9698b6',
-        marginLeft:1,
+        marginLeft:10,
         marginTop:10
     },
     itemDescription: {
@@ -62,6 +62,72 @@ const styles = StyleSheet.create({
         color:'#9698b6',
         paddingTop:10,
         textAlign:'justify'
+    },
+
+    itemActivity: {
+        minHeight:60,
+        paddingLeft:10
+    },
+
+    itemActivityOption: {
+        marginTop:5,
+        flexDirection: 'row',
+        // backgroundColor: '#fcfcfc',
+        borderBottomWidth: 1,
+        borderColor: '#eaeaea',
+        alignItems:'center'
+    },
+    itemActivityIndex: {
+        width:'15%',
+        fontWeight:'900',
+        fontSize:18,
+        textAlign:'center',
+        color:'#0072bc',
+        paddingVertical: 15,
+    },
+    itemActivityTitle: {
+        width:'83%',
+        paddingLeft:10,
+        color:'#0e1783',
+        fontWeight:'700',
+        textTransform: 'uppercase'
+    },
+    itemActivityIcon: {
+        width:'15%',
+        fontWeight:'900',
+        fontSize:24,
+        color:'red',
+        textAlign:'center',
+        paddingVertical: 15,
+    },
+    activityInfosSection:{
+        paddingBottom:5,
+        paddingTop: 5,
+    },
+    activityInfos:{
+        marginBottom: 5,
+        flexDirection:'row',
+        alignItems: 'center'
+    },
+    activityInfosIcon: {
+        color: '#aaa',
+        marginRight: 5
+    },
+    activityInfosIconNext: {
+        textAlign:'right',
+        marginTop:-30,
+        fontSize:18
+    },
+    activityInfosText: {
+        color: '#aaa',
+        fontWeight: 'bold',
+        marginRight: 15,
+        fontSize: 12
+    },
+    activityInfosTitle:{
+        fontSize: 14,
+        color: '#5f617d',
+        paddingVertical:5
     },
 
     centeredView: {

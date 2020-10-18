@@ -5,7 +5,6 @@ import { Feather } from '@expo/vector-icons';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
 import PageHeader from '../../Components/PageHeader';
-import api from '../../services/api';
 import styles from './styles';
 
 function ProgTheme(){
@@ -26,7 +25,6 @@ function ProgTheme(){
 
 	function loadData(){
 		AsyncStorage.getItem('Activities').then(res => {
-			
 			if(res){ 
 				const local = JSON.parse(res);
 
@@ -74,6 +72,7 @@ function ProgTheme(){
 												
 												<View style={styles.activityInfosSection}>
 													<View style={styles.activityInfos}>
+
 														<Feather style={styles.activityInfosIcon} name='calendar'></Feather>
 														<Text style={styles.activityInfosText}> {activity.DiaMesInicioAtividade} </Text>
 														
@@ -83,9 +82,9 @@ function ProgTheme(){
 														</Text>
 													</View>
 													<View style={styles.activityInfos}>
-														<Feather style={styles.activityInfosIcon} name='map-pin'></Feather>
-														<Text style={styles.activityInfosText}>{activity.LocalAtividade}</Text>
+														<Text style={[styles.activityInfosText, styles.activityInfosTitle]}>{activity.DescricaoAtividade}</Text>
 													</View>
+													<Feather style={[styles.activityInfosIcon, styles.activityInfosIconNext]} name={'chevrons-right'}></Feather>
 												</View>
 
 											</TouchableOpacity>

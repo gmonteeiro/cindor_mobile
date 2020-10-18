@@ -38,28 +38,42 @@ const styles = StyleSheet.create({
         borderLeftWidth:3,
         backgroundColor:'#fafafa',
         borderLeftColor:'#9698b6',
-        marginLeft:1,
-        marginTop:10
-    },
+        marginLeft:10,
+        marginTop:10,
 
+    },
+    
     activityInfosSection:{
-        // paddingHorizontal: 20,
         paddingTop: 5,
+        paddingBottom:5
     },
     activityInfos:{
         marginBottom: 5,
         flexDirection:'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        
     },
     activityInfosIcon: {
-        color: '#5f617d',
+        color: '#aaa',
         marginRight: 5
     },
+
+    activityInfosIconNext: {
+        textAlign:'right',
+        marginTop:-30,
+        fontSize:18
+    },
+  
     activityInfosText: {
-        color: '#5f617d',
+        color: '#aaa',
         fontWeight: 'bold',
         marginRight: 15,
-        fontSize: 14
+        fontSize: 12
+    },
+    activityInfosTitle:{
+        fontSize: 14,
+        color: '#5f617d',
+        paddingVertical:5
     },
 
     centeredView: {
